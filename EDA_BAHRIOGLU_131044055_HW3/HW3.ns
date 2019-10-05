@@ -1,0 +1,250 @@
+#------------------------------------------------------- 
+# This ns script has been created by the nam editor.
+# If you edit it manually, the nam editor might not
+# be able to open it properly in the future.
+#
+# EDITING BY HAND IS AT YOUR OWN RISK!
+#------------------------------------------------------- 
+# Create a new simulator object.
+set ns [new Simulator]
+# Create a nam trace datafile.
+set namfile [open /home/eda/Desktop/HW3.nam w]
+$ns namtrace-all $namfile
+
+# Create wired nodes.
+set node(5) [$ns node]
+## node(5) at 593.265625,538.781250
+$node(5) set X_ 593.265625
+$node(5) set Y_ 538.781250
+$node(5) set Z_ 0.0
+$node(5) color "blue"
+
+set node(4) [$ns node]
+## node(4) at 518.328125,539.812500
+$node(4) set X_ 518.328125
+$node(4) set Y_ 539.812500
+$node(4) set Z_ 0.0
+$node(4) color "blue"
+
+set node(3) [$ns node]
+## node(3) at 589.828125,609.593750
+$node(3) set X_ 589.828125
+$node(3) set Y_ 609.593750
+$node(3) set Z_ 0.0
+$node(3) color "blue"
+
+set node(2) [$ns node]
+## node(2) at 520.046875,606.500000
+$node(2) set X_ 520.046875
+$node(2) set Y_ 606.500000
+$node(2) set Z_ 0.0
+$node(2) color "blue"
+
+set node(1) [$ns node]
+## node(1) at 480.171844,569.375000
+$node(1) set X_ 480.171844
+$node(1) set Y_ 569.375000
+$node(1) set Z_ 0.0
+$node(1) color "blue"
+
+
+# Create links between nodes.
+$ns simplex-link $node(5) $node(4) 1.000000Mb 20.000000ms DropTail
+$ns simplex-link-op $node(5) $node(4) queuePos 0.5
+$ns simplex-link-op $node(5) $node(4) color black
+$ns simplex-link-op $node(5) $node(4) orient 179.2deg
+# Set Queue Properties for link 5->4
+[[$ns link $node(5) $node(4)] queue] set limit_ 20
+
+$ns simplex-link $node(5) $node(3) 1.000000Mb 20.000000ms DropTail
+$ns simplex-link-op $node(5) $node(3) queuePos 0.5
+$ns simplex-link-op $node(5) $node(3) color black
+$ns simplex-link-op $node(5) $node(3) orient 92.8deg
+# Set Queue Properties for link 5->3
+[[$ns link $node(5) $node(3)] queue] set limit_ 20
+
+$ns simplex-link $node(4) $node(2) 1.000000Mb 20.000000ms DropTail
+$ns simplex-link-op $node(4) $node(2) queuePos 0.5
+$ns simplex-link-op $node(4) $node(2) color black
+$ns simplex-link-op $node(4) $node(2) orient 88.5deg
+# Set Queue Properties for link 4->2
+[[$ns link $node(4) $node(2)] queue] set limit_ 20
+
+$ns simplex-link $node(4) $node(1) 1.000000Mb 20.000000ms DropTail
+$ns simplex-link-op $node(4) $node(1) queuePos 0.5
+$ns simplex-link-op $node(4) $node(1) color black
+$ns simplex-link-op $node(4) $node(1) orient 142.2deg
+# Set Queue Properties for link 4->1
+[[$ns link $node(4) $node(1)] queue] set limit_ 20
+
+$ns simplex-link $node(4) $node(5) 1.000000Mb 20.000000ms DropTail
+$ns simplex-link-op $node(4) $node(5) queuePos 0.5
+$ns simplex-link-op $node(4) $node(5) color black
+$ns simplex-link-op $node(4) $node(5) orient 359.2deg
+# Set Queue Properties for link 4->5
+[[$ns link $node(4) $node(5)] queue] set limit_ 20
+
+$ns simplex-link $node(3) $node(5) 1.000000Mb 20.000000ms DropTail
+$ns simplex-link-op $node(3) $node(5) queuePos 0.5
+$ns simplex-link-op $node(3) $node(5) color black
+$ns simplex-link-op $node(3) $node(5) orient 272.8deg
+# Set Queue Properties for link 3->5
+[[$ns link $node(3) $node(5)] queue] set limit_ 20
+
+$ns simplex-link $node(3) $node(2) 1.000000Mb 1.000000ms DropTail
+$ns simplex-link-op $node(3) $node(2) queuePos 0.5
+$ns simplex-link-op $node(3) $node(2) color black
+$ns simplex-link-op $node(3) $node(2) orient 182.5deg
+# Set Queue Properties for link 3->2
+[[$ns link $node(3) $node(2)] queue] set limit_ 20
+
+$ns simplex-link $node(2) $node(4) 1.000000Mb 20.000000ms DropTail
+$ns simplex-link-op $node(2) $node(4) queuePos 0.5
+$ns simplex-link-op $node(2) $node(4) color black
+$ns simplex-link-op $node(2) $node(4) orient 268.5deg
+# Set Queue Properties for link 2->4
+[[$ns link $node(2) $node(4)] queue] set limit_ 20
+
+$ns simplex-link $node(2) $node(1) 100000.000000Mb 10.000000ms DropTail
+$ns simplex-link-op $node(2) $node(1) queuePos 0.5
+$ns simplex-link-op $node(2) $node(1) color black
+$ns simplex-link-op $node(2) $node(1) orient 223.0deg
+# Set Queue Properties for link 2->1
+[[$ns link $node(2) $node(1)] queue] set limit_ 20
+
+$ns simplex-link $node(2) $node(3) 1.000000Mb 20.000000ms DropTail
+$ns simplex-link-op $node(2) $node(3) queuePos 0.5
+$ns simplex-link-op $node(2) $node(3) color black
+$ns simplex-link-op $node(2) $node(3) orient 2.5deg
+# Set Queue Properties for link 2->3
+[[$ns link $node(2) $node(3)] queue] set limit_ 20
+
+$ns simplex-link $node(1) $node(4) 1.000000Mb 1.000000ms DropTail
+$ns simplex-link-op $node(1) $node(4) queuePos 0.5
+$ns simplex-link-op $node(1) $node(4) color black
+$ns simplex-link-op $node(1) $node(4) orient 322.2deg
+# Set Queue Properties for link 1->4
+[[$ns link $node(1) $node(4)] queue] set limit_ 20
+
+$ns simplex-link $node(1) $node(2) 1.000000Mb 20.000000ms DropTail
+$ns simplex-link-op $node(1) $node(2) queuePos 0.5
+$ns simplex-link-op $node(1) $node(2) color black
+$ns simplex-link-op $node(1) $node(2) orient 43.0deg
+# Set Queue Properties for link 1->2
+[[$ns link $node(1) $node(2)] queue] set limit_ 20
+
+# Add Link Loss Models
+
+# Create agents.
+set agent(8) [new Agent/TCPSink]
+$ns attach-agent $node(5) $agent(8)
+$agent(8) set packetSize_ 210
+set agent(4) [new Agent/TCP]
+$ns attach-agent $node(5) $agent(4)
+
+# Create traffic sources and add them to the agent.
+set traffic_source(8) [new Application/FTP]
+$traffic_source(8) attach-agent $agent(4)
+$traffic_source(8) set maxpkts_ 256
+set agent(9) [new Agent/TCPSink]
+$ns attach-agent $node(4) $agent(9)
+$agent(9) set packetSize_ 210
+set agent(3) [new Agent/TCP]
+$ns attach-agent $node(4) $agent(3)
+
+$ns color 3 "BLUE"
+$agent(3) set fid_ 3
+$agent(3) set packetSize_ 150
+$agent(3) set window_ 20
+$agent(3) set windowInit_ 1
+$agent(3) set maxcwnd_ 0
+
+# Create traffic sources and add them to the agent.
+set traffic_source(10) [new Application/FTP]
+$traffic_source(10) attach-agent $agent(3)
+$traffic_source(10) set maxpkts_ 256
+set agent(7) [new Agent/TCPSink]
+$ns attach-agent $node(3) $agent(7)
+
+$ns color 7 "BLUE"
+$agent(7) set fid_ 7
+$agent(7) set packetSize_ 150
+set agent(5) [new Agent/TCP]
+$ns attach-agent $node(3) $agent(5)
+
+# Create traffic sources and add them to the agent.
+set traffic_source(6) [new Application/FTP]
+$traffic_source(6) attach-agent $agent(5)
+$traffic_source(6) set maxpkts_ 256
+set agent(6) [new Agent/TCPSink]
+$ns attach-agent $node(2) $agent(6)
+
+$ns color 6 "RED"
+$agent(6) set fid_ 6
+$agent(6) set packetSize_ 150
+set agent(2) [new Agent/TCP]
+$ns attach-agent $node(2) $agent(2)
+
+$ns color 2 "BLUE"
+$agent(2) set fid_ 2
+$agent(2) set packetSize_ 150
+$agent(2) set window_ 20
+$agent(2) set windowInit_ 1
+$agent(2) set maxcwnd_ 0
+
+# Create traffic sources and add them to the agent.
+set traffic_source(1) [new Application/FTP]
+$traffic_source(1) attach-agent $agent(2)
+$traffic_source(1) set maxpkts_ 256
+set agent(10) [new Agent/TCPSink]
+$ns attach-agent $node(1) $agent(10)
+$agent(10) set packetSize_ 210
+set agent(1) [new Agent/TCP]
+$ns attach-agent $node(1) $agent(1)
+
+$ns color 1 "RED"
+$agent(1) set fid_ 1
+$agent(1) set packetSize_ 150
+$agent(1) set window_ 20
+$agent(1) set windowInit_ 1
+$agent(1) set maxcwnd_ 0
+
+# Create traffic sources and add them to the agent.
+set traffic_source(13) [new Application/FTP]
+$traffic_source(13) attach-agent $agent(1)
+$traffic_source(13) set maxpkts_ 256
+
+# Connect agents.
+$ns connect $agent(3) $agent(8)
+
+
+# Traffic Source actions.
+$ns at 1.000000 "$traffic_source(10) start"
+$ns connect $agent(7) $agent(4)
+
+
+# Traffic Source actions.
+$ns connect $agent(6) $agent(5)
+
+
+# Traffic Source actions.
+$ns connect $agent(2) $agent(10)
+
+
+# Traffic Source actions.
+$ns at 1.200000 "$traffic_source(1) start"
+$ns connect $agent(1) $agent(9)
+
+
+# Traffic Source actions.
+$ns at 1.100000 "$traffic_source(13) start"
+# Run the simulation
+proc finish {} {
+	global ns namfile
+	$ns flush-trace
+	close $namfile
+	exec nam -r 2000.000000us /home/eda/Desktop/HW3.nam &	
+	exit 0
+	}
+$ns at 60.000000 "finish"
+$ns run
